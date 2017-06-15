@@ -1,0 +1,743 @@
+body,html{
+    height:100%;
+    width: 100%;
+    font-size: 62.5%;
+}
+*{
+    margin:0 ;
+    padding: 0;
+}
+a{
+  text-decoration: none;
+}
+ul li{
+  list-style:none;
+}
+.lay-out{
+  margin-left: auto;
+  margin-right: auto;
+}
+.pull-left{
+  float: left;
+}
+.pull-right{
+  float: right;
+}
+.clear-fix{
+  *zoom: 1;
+  &::before,&::after{
+    content:'';
+    display: block;
+  }
+  &::after{
+    clear:both;
+  }
+}
+.main-bg{
+  background:url(../images/mainBg.png);
+  background-size:cover;
+}
+$main-color:#4a120d;
+$namain-fontSize:15px;
+@mixin wid-hei($value1,$value2){
+  width: $value1;
+  height: $value2;
+}
+@mixin border($num1,$value1,$value2,$value3){
+  border: $num1 $value1 $value2 ;
+  box-sizing: $value3;
+}
+@mixin align($value1,$value2,$value3,$value4){
+  font-size: $value1;
+  color: $value2;
+  line-height: $value3;
+  text-align: $value4;
+}
+.header{
+  @include wid-hei(100%,176px);
+  background: url(../images/topBg.png);
+  background-size: cover;
+  .header-main{
+    @include wid-hei(1000px,100%);
+    .header-nav{
+      @include wid-hei(100%,34px);
+      ul {
+        @include wid-hei(auto,34px);
+        background:$main-color;
+        margin: 0 15px;
+        li{
+          @include wid-hei(auto,34px);
+          display: inline-block;
+          a{
+            @include align($namain-fontSize,white,34px,center);
+            padding:0  5px 0 10px;
+          }
+        }
+      }
+    }
+    .header-content{
+      @include wid-hei(100%,142px);
+      .logo{
+        margin: 24px 4px 40px 4px;
+      }
+      .header-main-show{
+        @include align(20px,black,25px,left);
+        border-left: 1px solid black;
+        border-sizing: border-box;
+        margin:43px 4px 40px 4px;
+        padding-left: 8px;
+        span{
+          color: red;
+        }
+      }
+      .header-main-tel{
+        @include wid-hei(230px,70px);
+        margin:43px 20px 0 0;
+        img{
+          float: left;
+          margin:13px 10px 0 0;
+        }
+        .tel-main1{
+          @include align($namain-fontSize,black,20px,left);
+          margin-top: 27px;
+        }
+        .tel-main2{
+          @include align(20px,$main-color,20px,left);
+        }
+      }
+    }
+  }
+}
+.nav{
+  @include wid-hei(100%,45px);
+  background:url(../images/topNavBg.png);
+  background-size:cover;
+.nav-main{
+  @include wid-hei(auto,45px);
+  // clear:both;
+  .nav-main-list{
+    @include wid-hei(100%,100%);
+
+    li{
+      @include align($namain-fontSize,white,45px,left);
+      display:inline-block;
+      margin: 6px  18px;
+      &:first-child{
+        margin-left:-240px;
+      }
+    }
+  }
+}
+}
+.banner-main{
+  @include wid-hei(100%,488px);
+  background:url(../images/banner.png);
+}
+.content-show{
+  @include wid-hei(100%,auto);
+  .content-show-search{
+    @include wid-hei(1000px,55px);
+    .show-search-inpt{
+      @include wid-hei(280px,55px);
+      margin-top:13px;
+      input{
+        @include wid-hei(100%,50%);
+        border-right:none;
+      }
+    }
+    .show-search-btn{
+      @include wid-hei(78px,55px);
+      button{
+        @include wid-hei(100%,60%);
+        margin-top:12px;
+        background:$main-color;
+        color:white;
+      }
+    }
+    p{
+      float: left;
+      margin:22px 4px 17px 8px;
+      }
+    ul li{
+      margin:22px 4px 17px 4px;
+      display:inline-block;
+    }
+  }
+  .content-show-main{
+    @include wid-hei(1000px,auto);
+    clear:both;
+    .show-main-product{
+      @include wid-hei(210px,auto);
+      background:url(../images/productBg.png);
+      background-size:cover;
+      padding: 4px 4px;
+      float:left;
+      .main-product-son{
+        background:#fff1d4;
+        padding: 14px;
+        p{
+          @include wid-hei(100%,35px);
+          background:url(../images/titleBg.png) no-repeat;
+          background-size:cover;
+          @include align($namain-fontSize,$main-color,35px,center);
+        }
+        ul{
+          @include wid-hei(auto,auto);
+          margin-top:14px;
+          li{
+            @include wid-hei(100%,30px);
+            @include align(10px,black,30px,left);
+            padding-left:15px;
+            position:relative;
+            &::after{
+              display:block;
+              content:'';
+              position: absolute;
+              top:12px;
+              left:1px;
+              height: 0;
+              width: 0;
+              border-color:transparent transparent transparent $main-color;
+              border-width:4px;
+              border-style:dashed dashed dashed solid;
+            }
+          }
+        }
+      }
+    }
+    .show-main-pic{
+      @include wid-hei(780px,auto);
+      float:right;
+        p{
+          @include align($namain-fontSize,$main-color,20px,left);
+          padding-left:25px;
+        }
+        span{
+          @include wid-hei(760px,auto);
+          border-bottom:1px solid $main-color;
+          margin-bottom:4px;
+          float:right;
+          a{
+            float:right;
+          }
+      }
+      .main-pic-show{
+        display:flex;
+        flex-deration:column;
+        justify-content:space-between;
+        flex-wrap:wrap;
+        padding-left:25px;
+        div{
+          margin-top:14px;
+          img{
+            background:white;
+            padding:4px;
+          }
+          p{
+          @include align($namain-fontSize,$main-color,40px,center);
+         }
+        }
+      }
+    }
+  }
+}
+.banner-cooperation{
+  @include wid-hei(100%,360px);
+  background:url(../images/cooperationShade.png),url(../images/cooperationBg.png) ;
+  .banner-cooperation-title{
+    @include wid-hei(1000px,85px);
+    img{
+      margin-left:400px;
+    }
+  }
+  .banner-cooperation-logo{
+    @include wid-hei(1000px,auto);
+      display:flex;
+      flex-deration:column;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      img{
+        margin:3px;
+      }
+  }
+}
+.content-case{
+  @include wid-hei(100%,874px);
+  .content-case-title{
+    @include wid-hei(1000px,80px);
+    border-bottom:1px solid $main-color;
+  }
+  .content-case-show{
+    @include wid-hei(1000px,470px);
+    margin-bottom:10px;
+    margin-top: 10px;
+    border-bottom:1px solid $main-color;
+    display:flex;
+    flex-deration:column;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    p{
+      @include align($namain-fontSize,$main-color,40px,center);
+    }
+    img{
+      background:white;
+      padding:4px;
+    }
+  }
+  .content-case-problem{
+    @include wid-hei(1000px,324px);
+  .case-problem-pic{
+    @include wid-hei(400px,60%);
+    float:left;
+    margin:8px 20px 0 0;
+  }
+  .case-problem-choose{
+    @include wid-hei(500px,60%);
+    margin:30px 20px 0 0;
+    float:left;
+    b{
+      @include align(20px,$main-color,40px,left);
+      span{
+        color: red;
+      }
+    }
+    p{
+      @include align(10px,black,20px,left);
+      margin:60px 0 0 40px;
+    }
+  }
+  }
+}
+.content-select{
+  @include wid-hei(100%,auto);
+  .content-select-header{
+    @include wid-hei(100%,179px);
+    .select-header-bg{
+      @include wid-hei(100%,135px);
+      background:url(../images/selectBgShade.png),url(../images/selectBg.png);
+      b{
+        @include wid-hei(1000px,auto);
+        display:block;
+        @include align(50px,white,40px,left);
+        padding-top: 20px;
+        padding-left: 25px;
+        span{
+          color: yellow;
+        }
+      }
+      p{
+        @include wid-hei(1000px,auto);
+        @include align(15px,white,40px,left);
+        padding-top: 10px;
+        padding-left: 25px;
+        span{
+          float:right;
+          @include wid-hei(200px,42px);
+          border-top: 1px solid white;
+          border-bottom: 1px solid white;
+          margin-right: 100px;
+          @include align(15px,white,40px,left);
+        }
+      }
+    }
+
+  }
+  .select-sircle{
+    & > div{
+      position: relative;
+    }
+    span{
+      position:absolute;
+      top:0;
+      left:-35px;
+      display:block;
+      width: 30px;
+      height: 30px;
+      border-radius:15px;
+      background:$main-color;
+      color:white;
+      line-height:30px;
+      text-align:center;
+    }
+    h2{
+      @include align(15px,$main-color,20px,left);
+    }
+  }
+  .content-select-one{
+    @include wid-hei(1000px,194px);
+    .content-select-p1{
+    @include wid-hei(40%,194px);
+    float:left;
+    margin-left:40px;
+    }
+    .select-one-pic{
+    @include wid-hei(40%,194px);
+    float:right;
+    margin-top:36px;
+    }
+  }
+  .content-select-two{
+    @include wid-hei(1000px,292px);
+    .content-select-p2{
+    @include wid-hei(40%,194px);
+    margin-left:40px;
+    float:left;
+    }
+    .select-two-pic{
+    @include wid-hei(40%,194px);
+    float:right;
+    }
+  }
+  .content-select-three{
+    @include wid-hei(1000px,269px);
+    .content-select-p3{
+    @include wid-hei(30%,194px);
+    margin-left:40px;
+    float:right;
+    }
+    .select-three-pic{
+    @include wid-hei(60%,194px);
+    float:left;
+    margin-top:-80px;
+    }
+  }
+  .content-select-four{
+    @include wid-hei(1000px,185px);
+    .content-select-p4{
+    @include wid-hei(40%,194px);
+    margin-left:40px;
+    float:left;
+    }
+    .select-four-pic{
+    @include wid-hei(40%,194px);
+    float:right;
+      margin-top:-44px;
+      margin-right: 40px;
+    }
+  }
+  .content-select-five{
+    @include wid-hei(1000px,250px);
+    .content-select-p5{
+    @include wid-hei(40%,194px);
+    margin-left:40px;
+    }
+  }
+  .content-select-footer{
+    @include wid-hei(1000px,135px);
+    background:url(../images/cententBanner.png);
+    .select-footer-top{
+      @include wid-hei(100%,50%);
+      b{
+        float: left;
+        @include align(20px,red,40px,left);
+        text-shadow: 0 0 5px white;
+        margin:10px 0 0 120px;
+      }
+      p{
+        float: left;
+        margin: 15px auto auto 30px;
+        @include align(28px,white,40px,left);
+      }
+
+    }
+    .select-footer-bottom{
+      @include wid-hei(100%,50%);
+      span{
+        float: left;
+        @include wid-hei(10%,50%);
+        background:$main-color;
+        margin-left: 140px;
+        @include align(15px,white,30px,center);
+      }
+      p{
+        float: right;
+        margin: 0 210px auto 30px;
+        @include align(20px,yellow,20px,left);
+      }
+    }
+  }
+}
+.content-walkin{
+  @include wid-hei(100%,auto);
+  .content-walkin-company{
+    @include wid-hei(1000px,auto);
+    padding-bottom: 50px;
+    .walkin-company-title{
+      @include wid-hei(100%,auto);
+      padding-top:77px;
+      .company-title-left{
+        @include wid-hei(69%,100%);
+        float:left;
+      }
+      .company-title-right{
+          @include wid-hei(30%,100%);
+          float:right;
+      }
+    }
+    .walkin-company-main{
+      @include wid-hei(1000px,auto);
+      .compang-main-img{
+        @include wid-hei(30%,auto);
+        float:left;
+        margin-top:25px;
+        img{
+          @include wid-hei(90%,auto);
+          background:white;
+          padding: 4px;
+        }
+      }
+      .compang-main-p{
+        @include wid-hei(35%,auto);
+        color:black;
+        font-size:15px;
+        margin-top:25px;
+        float:left;
+      }
+      .compang-main-card{
+        @include wid-hei(30%,auto);
+        margin: 25px auto auto 50px;
+        float:right;
+      }
+    }
+  }
+  .content-walkin-pic{
+    @include wid-hei(100%,243px);
+    background:url(../images/cententShow.png);
+    .walkin-pic-show{
+      @include wid-hei(1000px,243px);
+      padding-top:20px;
+      img{
+        background:white;
+        padding: 4px;
+        margin: 4px;
+      }
+      &>div{
+        float:left;
+      }
+      p{
+        @include align(15px,black,30px,center);
+      }
+    }
+  }
+  .content-walkin-knowlege{
+    @include wid-hei(1000px,auto);
+    clear:both;
+    .shadow{
+      @include wid-hei(3%,auto);
+      margin-top: 100px;
+      float:left;
+    }
+    .walkin-knowlege-knowledge{
+      @include wid-hei(30%,auto);
+      margin-left:10px;
+      float:left;
+      .knowlege-knowledge-title{
+        @include wid-hei(100%,auto);
+        padding-top:57px;
+      }
+      .knowlege-knowledge-main{
+        padding-top:20px;
+        padding-bottom: 70px;
+        @include wid-hei(100%,auto);
+        @include align(15px,black,30px,left);
+        ul li{
+          padding-left:10px;
+          position:relative;
+            &::after{
+              display:block;
+              content:'';
+              position: absolute;
+              top:12px;
+              left:1px;
+              height: 0;
+              width: 0;
+              border-color:transparent transparent transparent $main-color;
+              border-width:4px;
+              border-style:dashed dashed dashed solid;
+            }
+        }
+
+      }
+    }
+    .walkin-knowlege-state{
+      @include wid-hei(30%,auto);
+      margin-left:10px;
+      float:left;
+      .knowlege-state-title{
+        @include wid-hei(100%,auto);
+        padding-top:57px;
+      }
+      .knowlege-state-main{
+        padding-top:20px;
+        @include wid-hei(100%,auto);
+        @include align(15px,black,30px,left);
+        ul li{
+          padding-left:10px;
+          position:relative;
+            &::after{
+              display:block;
+              content:'';
+              position: absolute;
+              top:12px;
+              left:1px;
+              height: 0;
+              width: 0;
+              border-color:transparent transparent transparent $main-color;
+              border-width:4px;
+              border-style:dashed dashed dashed solid;
+            }
+        }
+
+      }
+
+    }
+    .walkin-knowlege-problem{
+      @include wid-hei(30%,auto);
+      margin-left:10px;
+      float:left;
+      .knowlege-problem-title{
+        @include wid-hei(100%,auto);
+        padding-top:57px;
+
+      }
+      .knowlege-problem-main{
+        @include wid-hei(100%,auto);
+        .problem-main-top{
+          border-bottom: 1px solid dashed;
+          margin: 20px 0 ;
+        }
+        p:first-child{
+          @include align(15px,$main-color,30px,left);
+          span{
+            display:black;
+            height: 20px;
+            width: 20px;
+            border-radius:10px;
+            background:$main-color;
+            color:white;
+          }
+        }
+        p:last-child{
+          @include align(15px,black,20px,left);
+          span{
+            display:black;
+            height: 20px;
+            width: 20px;
+            border-radius:10px;
+            background:red;
+            color:white;
+          }
+        }
+      }
+
+      }
+    }
+  }
+  .content-walkin-linkurl{
+        @include wid-hei(1000px,100px);
+        .walkin-linkurl-title{
+          @include wid-hei(100%,auto);
+        }
+        .walkin-linkurl-main{
+          ul li{
+            display: inline-block;
+            @include align(15px,black,20px,left);
+            margin:5px 0.3px;
+          }
+        }
+}
+.footer{
+  @include wid-hei(100%,292px);
+  background:url(../images/bottomShade.png),url(../images/bottomBg.png);
+  .footer-main-nav{
+    @include wid-hei(1000px,auto);
+    ul li{
+      display:inline-block;
+      @include align(15px,white,30px,center);
+      margin:25px 10px;
+      &:first-child{
+        margin-left:80px;
+      }
+    }
+  }
+  .footer-main-centent{
+    @include wid-hei(1000px,auto);
+    .left{
+      float: left;
+      margin-left: 180px;
+    }
+    .right{
+      float:left;
+      @include align(15px,white,40px,left);
+      margin-left: 25px;
+    }
+  }
+}
+.public-title{
+    border-bottom: 2px solid $main-color;
+    border-sizing: border-box;
+    position:relative;
+      b{
+        display: block;
+        width: 10px;
+        height: 10px;
+        background:$main-color;
+        position:absolute;
+        bottom: 4px;
+        left:0;
+      }
+      p{
+        @include align($namain-fontSize,$main-color,15px,left);
+        position:absolute;
+        bottom: 4px;
+        left:14px;
+      }
+      a{
+        border-bottom: 4px solid $main-color;
+      }
+    span{
+      position:absolute;
+      bottom: 4px;
+      right:0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
